@@ -1,0 +1,92 @@
+
+
+<div class="d-flex border border-light">
+
+    <!-- side bar -->
+    <div style="width: 200px; height: 90vh; " class="sidebar bg-info p-3 d-flex flex-column">
+
+        <a routerLink="/home">Home</a>
+        <a routerLink="/users">Users</a>
+
+
+
+    </div>
+
+    <!-- dash board -->
+    <div class="dashboard p-3 w-100">
+       
+        <!-- title -->
+
+        <div class="title">
+
+            <h1>Add new User</h1>
+
+
+        </div>
+
+        <!-- user details  -->
+
+        <div class="user-details mt-5 shadow border rounded p-3">
+
+            <form>
+
+                <!-- user id -->
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInputId" placeholder="user Id">
+                    <label for="floatingInputId">user Id </label>
+                  </div>
+
+                  <!-- user name -->
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingUsername" placeholder="UserName">
+                    <label for="User name">UserName</label>
+                  </div>
+
+                  <!--  email-->
+
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingemail" placeholder="Email">
+                    <label for="User name">Email</label>
+                  </div>
+
+                  <!-- drope down -->
+                   <div class="form-floating mb-3">
+                     <select  id="floatingStatus" class="form-control">
+
+                        <option disabled selected hidden></option>
+
+                        <option> Active</option>
+                        <option>In Active</option>
+
+                     </select>
+
+                    <label for="floatingStatus">Status</label>
+
+                   </div>
+
+                   <!-- buton -->
+
+                   <div class="mt-5 text-center">
+
+                    <button class="btn btn-warning">Cancel</button>
+                    <button class="btn btn-success ms-5">Save</button>
+                   </div>
+
+
+                
+
+
+            </form>
+
+
+        </div>
+
+
+       
+
+    </div>
+
+
+</div>
+
