@@ -31,56 +31,83 @@
 
         <div class="user-details mt-5 shadow border rounded p-3">
 
-            <form>
+          
+          <form #addUserform="ngForm">
 
-                <!-- user id -->
+            <!-- user id -->
 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInputId" placeholder="user Id">
-                    <label for="floatingInputId">user Id </label>
-                  </div>
+            <div class="form-floating mb-3">
+                <input type="text" #id="ngModel" [(ngModel)]="user.id" name="id" class="form-control" id="floatingInputId" placeholder="user Id" pattern="[0-9]*" required>
+                <label for="floatingInputId">user Id </label>
+              </div>
 
-                  <!-- user name -->
-                  <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingUsername" placeholder="UserName">
-                    <label for="User name">UserName</label>
-                  </div>
+              <!-- error message for id -->
+              <div *ngIf="id.invalid&&id.touched" class="mb-3 text-danger">invalid id</div>
 
-                  <!--  email-->
+              <!-- user name -->
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingUsername" placeholder="UserName" pattern="[a-zA-Z ]*" name="name"
+                [(ngModel)]="user.name" #name="ngModel" required>
+                <label for="User name">UserName</label>
+              </div>
 
-                  <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingemail" placeholder="Email">
-                    <label for="User name">Email</label>
-                  </div>
+              <!-- error messsage for name -->
 
-                  <!-- drope down -->
-                   <div class="form-floating mb-3">
-                     <select  id="floatingStatus" class="form-control">
-
-                        <option disabled selected hidden></option>
-
-                        <option> Active</option>
-                        <option>In Active</option>
-
-                     </select>
-
-                    <label for="floatingStatus">Status</label>
-
-                   </div>
-
-                   <!-- buton -->
-
-                   <div class="mt-5 text-center">
-
-                    <button class="btn btn-warning">Cancel</button>
-                    <button class="btn btn-success ms-5">Update</button>
-                   </div>
+              
+              <div *ngIf="name.invalid&&name.touched" class="mb-3 text-danger">invalid user name</div>
 
 
-                
+
+              <!--  email-->
+
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingemail" placeholder="Email" email required
+                 #email="ngModel" name="email" [(ngModel)]="user.email">
+                <label for="User name">Email</label>
+              </div>
 
 
-            </form>
+              <!-- error messssage for email -->
+
+              <div *ngIf="email.invalid&&email.touched" class="mb-3 text-danger">invalid email</div>
+
+
+
+              <!-- drope down -->
+               <div class="form-floating mb-3">
+                 <select  id="floatingStatus" #active="ngModel" name="active" [(ngModel)]="user.active" class="form-control" required>
+
+                    <option disabled selected hidden></option>
+
+                    <option value="1"> Active</option>
+                    <option value="0">In Active</option>
+
+                 </select>
+
+                <label for="floatingStatus">Status</label>
+
+               </div>
+
+               <!-- error msg for status -->
+
+               <div *ngIf="active.invalid&&active.touched" class="mb-3 text-danger">invalid status</div>
+
+               <!-- buton -->
+
+               <div class="mt-5 text-center">
+
+                <button (click)="cancelupdate(user.id)" class="btn btn-warning" >Cancel</button>
+                <button (click)="updateUser()" [disabled]="addUserform.invalid" class="btn btn-success ms-5" >Update</button>
+               </div>
+
+
+            
+
+
+        </form>
+
+
+          
 
 
         </div>

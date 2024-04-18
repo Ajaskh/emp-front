@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { userSchema } from '../modules/users/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,43 @@ export class ApiService {
    return this.http.get(`${this.base_url}/users`)
 
 
+
+  }
+
+  // add user  
+
+  addUser(user:userSchema){
+
+    // api call to this url:::::: http://localhost:3000/users, body pass
+
+    return this.http.post(`${this.base_url}/users`,user)
+    
+  }
+
+  // get existing user (single person)
+
+  getexisting(id:any){
+    return this.http.get(`${this.base_url}/users/${id}`)
+  }
+
+  // update user
+
+  updateUser(id:any,data:userSchema){
+
+    //  // api call to this url:::::: http://localhost:3000/users/id
+
+   return this.http.put(`${this.base_url}/users/${id}`,data)
+
+
+  }
+
+  // delete user 
+
+  deleteUser(id:any){
+    
+ // api call to this url:::::: http://localhost:3000/users/id
+
+   return this.http.delete(`${this.base_url}/users/${id}`)
 
   }
 

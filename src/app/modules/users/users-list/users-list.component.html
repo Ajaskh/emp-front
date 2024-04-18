@@ -41,17 +41,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>100</td>
-                        <td>Max miller</td>
-                        <td> max123@gmail.com</td>
-                        <td> Active</td>
+
+                    <tr *ngFor="let user of allusers" >
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td> <span [ngClass]="user.active==='1'?'Active':'InActive'"> {{user.active==="1"?'Active':'Inactive'}} </span> </td>
                         <td>
                             <!-- edit -->
-                            <i routerLink="edit/1" class="fa-solid fa-pen text-success me-3 btn"></i>
+                            <i routerLink="edit/{{user.id}}" class="fa-solid fa-pen text-success me-3 btn"></i>
 
                             <!-- delete -->
-                            <i class="fa-solid fa-trash text-danger btn"></i>
+                            <i (click)="deleteUser(user.id)" class="fa-solid fa-trash text-danger btn"></i>
 
 
                         </td>

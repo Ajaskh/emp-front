@@ -4,3 +4,16 @@ a{
     font-weight: bold;
     color: white;
 }
+.Active{
+    background-color: green;
+    padding: 8px;
+    border: 2px ;
+
+}
+
+.InActive{
+    background-color: rgb(233, 20, 9);
+    padding: 8px;
+    border: 2px ;
+
+}
